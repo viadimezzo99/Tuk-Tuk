@@ -1,5 +1,5 @@
 {
-  "build": 1,
+  "build": 2,
   "apk": "https://github.com/viadimezzo99/Tuk-Tuk/raw/main/download/tuk-tuk-test.apk",
-  "notes": "Build di prova"
+  "notes": "Build 2: grafica migliorata, pulsanti a schermo, riprova dopo incidente, auto non fermano la corsa, aggiornamenti automatici"
 }
