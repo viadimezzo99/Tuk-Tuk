@@ -276,7 +276,7 @@ namespace TukTuk.EditorTools
         }
 
         /// <summary>Costruisce un prefab pezzo per pezzo; ogni pezzo diventa una mesh salvata come asset.</summary>
-        private class Rig
+        internal class Rig
         {
             public readonly GameObject Root;
             public readonly string Key;

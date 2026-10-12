@@ -67,6 +67,7 @@ namespace TukTuk.EditorTools
             roadSo.FindProperty("toonMaterial").objectReferenceValue = toon;
             AssignPrefabs(roadSo, "treePrefabs", KenneyCity, TreeFiles);
             AssignPrefabs(roadSo, "carPrefabs", KenneyCar, CarFiles);
+            AppendPrefabFolder(roadSo, "carPrefabs", "Assets/Art/Generated/Cars");
             AssignBuildingPrefabs(roadSo);
             AssignPrefabFolder(roadSo, "pedestrianPrefabs", "Assets/Art/Generated/People");
             AssignPrefabFolder(roadSo, "cartPrefabs", "Assets/Art/Generated/Stalls");
@@ -104,6 +105,18 @@ namespace TukTuk.EditorTools
                     Debug.LogWarning("[TukTuk] Modello non trovato: " + folder + names[i] + ".fbx");
                 arr.GetArrayElementAtIndex(i).objectReferenceValue = prefab;
             }
+        }
+
+        /// <summary>Aggiunge in coda all'array i prefab della cartella, senza cancellare quelli già presenti.</summary>
+        private static void AppendPrefabFolder(SerializedObject so, string property, string folder)
+        {
+            string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { folder });
+            SerializedProperty arr = so.FindProperty(property);
+            int start = arr.arraySize;
+            arr.arraySize = start + guids.Length;
+            for (int k = 0; k < guids.Length; k++)
+                arr.GetArrayElementAtIndex(start + k).objectReferenceValue =
+                    AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guids[k]));
         }
 
         /// <summary>Assegna all'array indicato tutti i prefab presenti nella cartella.</summary>
