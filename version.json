@@ -1,5 +1,5 @@
 {
-  "build": 3,
+  "build": 4,
   "apk": "https://github.com/viadimezzo99/Tuk-Tuk/raw/main/download/tuk-tuk-test.apk",
-  "notes": "Build 3: corsa piu lenta e graduale, contorni piu marcati, aggiornamenti automatici"
+  "notes": "Build 4: intro cinematica nel deserto, marciapiedi d'angolo, correzioni ambiente e velocita del tuk-tuk"
 }
